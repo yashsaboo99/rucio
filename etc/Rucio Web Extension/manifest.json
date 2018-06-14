@@ -1,0 +1,63 @@
+{
+"update_url": "",
+
+	"manifest_version": 2,
+	"name": "Rucio Web Extension",
+	"version": "1.0",
+	
+	"description": "Download multiple files using metalink with automatic certification authorization",
+
+	"offline_enabled": true,
+	
+	"icons": {
+		"16": "icon16.png",
+		"19": "icon19.png",
+		"38": "icon38.png",
+		"48": "icon48.png",
+		"80": "icon80.png",
+		"128": "icon128.png"
+	},
+	
+	"browser_action": {
+		"default_icon": {
+			"19": "icon19.png",
+			"38": "icon38.png"
+		},
+		"default_title": "Rucio Web Extension"
+	},
+
+	"commands": {
+		"_execute_browser_action": {
+			"suggested_key": {
+				"windows": "Alt+X",
+				"mac": "Alt+X",
+				"chromeos": "Alt+X",
+				"linux": "Alt+X"
+			}
+		}
+	},
+	
+	"background": {
+		"scripts": ["background.js"],
+		"persistent": false
+	},
+	
+	"web_accessible_resources": [
+		"refreshIcon.png"
+	],
+
+	"content_scripts":[{
+  		"js":["jquery.min.js"],
+  	}],
+	
+	"permissions": [
+		"notifications",
+		"downloads",
+		"activeTab",
+		"storage",
+		"tabs", 
+		"<all_urls>",
+		"downloads.shelf", 
+		"unlimitedStorage"
+	]
+}
